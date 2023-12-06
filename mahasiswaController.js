@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../models/db');
 
 router.get('/', (req, res) => {
-    db.query('SELECT * FORM  mahasiswa', (error, results) => {
+    db.query('SELECT * FROM  mahasiswa', (error, results) => {
         if (error) {
             console.error('error fetching mahasiwa:', error);
             res.status(500).json({ message: 'Internal Server Error' });
@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:nim', (req, res) => {
-    const mahasiswaId = req.parans.nim;
-    db.query('SELECT * FORM  mahasiswa WHERE nim = ?', [mahasiswaID], (error, results) => {
+    const mahasiswaId = req.params.nim;
+    db.query('SELECT * FROM  mahasiswa WHERE nim = ?', [mahasiswaId], (error, results) => {
         if (error) {
             console.error('error fetching mahasiwa:', error);
             res.status(500).json({ message: 'Internal Server Error' });
